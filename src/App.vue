@@ -1,32 +1,63 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
+    <!--navbar for smaller screen-->
+    <TopNavbar/>
+    
+    <div class="row">
+
+      <!-- left side nav for large screen-->
+      <div class="col-md-2 navMenu d-none d-md-block">
+          <SideNavbar/> 
+      </div>
+
+      <!--full body except nav-->
+      <div class="col-md-10 col-sm-12 MainBody">
+      <router-view></router-view>
+      </div>
+        
+      
+
     </div>
-    <router-view/>
+    
   </div>
+
 </template>
 
+
+<script>
+
+  import TopNavbar from "./Navbar/Top-navbar.vue";
+  import SideNavbar from "./Navbar/Side-navbar.vue";
+
+
+export default {
+  name: 'App',
+
+  data(){
+    return{
+
+    };
+  },
+
+  components: {
+    TopNavbar,
+    SideNavbar
+
+  }
+}
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+.navMenu{
+          background-size: 150%;
+          padding: 0;
+        }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.MainBody{
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
 }
 </style>

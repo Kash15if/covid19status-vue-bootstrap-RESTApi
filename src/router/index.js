@@ -1,26 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+import Worldwide from '../components/Worldwide.vue'
+import Nationwide from '../components/Nationwide.vue'
+import Statewise from '../components/Statewise.vue'
+import District from '../components/District.vue'
+import Symptoms from '../components/Symptoms.vue'
+import AboutUs from '../components/AboutUs.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Worldwide',
+    component: Worldwide
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/About.vue')
-    }
+    component: AboutUs
+  },
+  {
+    path: '/statewise',
+    name: 'Statewise',
+    component: Statewise
   }
 ]
+
+
 
 const router = new VueRouter({
   mode: 'history',
