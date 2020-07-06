@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Worldwide from '../components/Worldwide.vue'
 import Nationwide from '../components/Nationwide.vue'
 import Statewise from '../components/Statewise.vue'
-import District from '../components/District.vue'
+import Districts from '../components/District.vue'
 import Symptoms from '../components/Symptoms.vue'
 import AboutUs from '../components/AboutUs.vue'
 
@@ -17,14 +17,29 @@ Vue.use(VueRouter)
     component: Worldwide
   },
   {
-    path: '/about',
-    name: 'About',
-    component: AboutUs
+    path: '/nationwide',
+    name: 'Nationwide',
+    component: Nationwide
   },
   {
     path: '/statewise',
     name: 'Statewise',
     component: Statewise
+  },
+  {
+    path: '/District',
+    name: 'Districs',
+    component: Districts
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: AboutUs
+  },
+  {
+    path: '/symptoms',
+    name: 'Symptoms',
+    component: Symptoms
   }
 ]
 

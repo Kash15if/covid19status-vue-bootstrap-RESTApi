@@ -11,20 +11,25 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Worldwide</a>
+
+          <li class="nav-item">
+            <router-link to="/" exact class="nav-link">Worldwide</router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Nationwide</a>
+            <router-link to="/nationwide" exact class="nav-link">Nationwide</router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">States</a>
+            <router-link to="/statewise" exact class="nav-link">States</router-link>
           </li>
           
-          <li class="nav-item ">
-            <a class="nav-link" href="#">About Us</a>
+          <li class="nav-item">
+            <router-link to="/symptoms" exact class="nav-link">Symptoms</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/about" exact class="nav-link">About Us</router-link>
           </li>
 
         </ul>
@@ -46,4 +51,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.router-link-active {
+          background-color: #2043dd;
+          color: white;
+          padding: 8px;
+          text-decoration: none;
+        }
 </style>

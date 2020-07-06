@@ -3,11 +3,12 @@
     <div class="NavBg">
             <ul>
                   <h3 style="margin-left:20px; color:white;">Covid19-Tacker</h3>
-                  <li><a class="active" href="#">Worldwide</a></li>
-                  <li><a href="#">Nationwide</a></li>
-                  <li><a href="#">States</a></li>
-                  <li><a href="#">Symptoms</a></li>
-                  <li><a  href="#">About Us</a></li>
+                  <li><router-link to="/" exact>Worldwide</router-link></li>
+                  <li><router-link to="/nationwide" exact>Nationwide</router-link></li>
+                  <li><router-link to="/statewise" exact>States</router-link></li>
+                  <li><router-link to="/symptoms" exact>Symptoms</router-link></li>
+                  <li><router-link to="/about" exact>About Us</router-link></li>
+                  
 
             </ul>
     </div>
@@ -15,6 +16,9 @@
 </template>
 
 <script>
+
+import 'vue-router'
+
 export default {
   name: 'SIde-navbar'
 }
@@ -37,7 +41,7 @@ export default {
           margin: 15px 10px 0px 10px;
         }
         
-        li a.active {
+        .router-link-active {
           background-color: #20a4f3;
           color: white;
           border-radius: 5px;
