@@ -92,8 +92,13 @@
 </template>
 
 <script>
+import LineChart from "../graph/graph.vue";
+
 export default {
-  name: 'District'
+  name: 'District',
+  components:{
+      LineChart,
+  },
 }
 </script>
 

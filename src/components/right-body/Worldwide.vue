@@ -7,20 +7,25 @@
                     <div class="col-md-4 col-sm-12 text-center text-primary">
                        
                         <h4><b>Total Case</b></h4>
-                        <h6> {{'*' + ' '}} {{ worldwide.Global.TotalConfirmed}}</h6>
+                        <h6> {{'~' + ' '}} {{ worldwide.Global.TotalConfirmed}}</h6>
                     </div>
 
                     <div class="col-md-4 col-sm-12 text-center text-success">
                         <h4><b>Recovered</b></h4>
-                        <h6> {{'*' + ' '}} {{ worldwide.Global.TotalRecovered }}</h6>
+                        <h6> {{'~' + ' '}} {{ worldwide.Global.TotalRecovered }}</h6>
                     </div>
 
                     <div class="col-md-4 col-sm-12 text-center text-danger">
                         <h4><b>Death</b></h4>
-                        <h6> {{'*' + ' '}} {{ worldwide.Global.TotalDeaths }}</h6>
+                        <h6> {{'~' + ' '}} {{ worldwide.Global.TotalDeaths }}</h6>
                     </div>
 
                 </div>
+
+                <Map style='width: 100%; height: 80vh'>  <MglMap
+    :mapboxGl="mapbox-gl"
+    @load="onMapLoaded"
+  /></Map>
 
 
                     <div class="table-responsive-xl " >
@@ -63,6 +68,7 @@
 <script>
 
 import  { mapActions , mapGetters} from 'vuex';
+import Map from "../graph/map.vue";
 
 
 export default {
@@ -71,6 +77,9 @@ export default {
       return{
 
       };
+  },
+  components:{
+      Map
   },
   methods:{
       ...mapActions(['getData'])
@@ -87,8 +96,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+h4{
+    margin-top: 2vh;
+}
+
 .col-sm-12{
-    margin-top: 5vh;
+    margin-top: 1vh;
 }
 
 .table{
