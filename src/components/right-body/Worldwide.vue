@@ -94,4 +94,10 @@ export default {
 .table{
     margin-top: 10vh;
 }
+
+th{
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(128, 253, 191);
+}
 </style>

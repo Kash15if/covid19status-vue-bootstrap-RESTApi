@@ -27,8 +27,8 @@
 
 <script>
 
-  import TopNavbar from "./Navbar/Top-navbar.vue";
-  import SideNavbar from "./Navbar/Side-navbar.vue";
+  import TopNavbar from "./components/Navbar/Top-navbar.vue";
+  import SideNavbar from "./components/Navbar/Side-navbar.vue";
 
 
 export default {

@@ -43,8 +43,8 @@
                     
                     <div class="col-md-6 col-sm-12">
                       <h5 style="margin-top: 5%;">Follow me : </h5>
-                        <i class="fab fa-github-square"></i>
-                        <i class="fab fa-linkedin"></i>
+                        <a href="https://github.com/Kash15if"><i class="fab fa-github-square"></i></a>
+                        <a href="https://www.linkedin.com/in/kashif-ahmad-373286164/"><i class="fab fa-linkedin"></i></a>
                         <i class="fab fa-facebook-square"></i>
                         <i class="fab fa-twitter-square"></i>
                         
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import photoLink from '../assets/kash.jpg'
+import photoLink from '../../assets/kash.jpg'
 
 export default {
   name: 'Aboutus',

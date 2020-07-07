@@ -22,6 +22,7 @@ export default new Vuex.Store({
 
     getNationalData: (state , nationwide) => {
       state.nationwide = nationwide;
+
     },
 
     statesGraphData: (state , statesGraph) => {
@@ -56,13 +57,13 @@ export default new Vuex.Store({
         'https://api.covid19india.org/state_district_wise.json'
       )
 
-        commit('getWorldData' , worldwide.data);
+        await commit('getWorldData' , worldwide.data);
 
-        commit('getNationalData' , nationwide.data);
+        await commit('getNationalData' , nationwide.data);
 
-        commit('statesGraphData' , StatesGraph.data);
+        await commit('statesGraphData' , StatesGraph.data);
 
-        commit('getDistrictsData' , districts.data);
+        await commit('getDistrictsData' , districts.data);
     }
   },
 
