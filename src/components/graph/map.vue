@@ -1,21 +1,37 @@
+<template>
+  <div class="container">
+    <MglMap :accessToken="accessToken" :mapStyle.sync="mapStyle">
+      <MglNavigationControl position="top-right" />
+      <MglGeolocateControl position="top-right" />
+      <MglPopup :coordinates="popupCoordinates">
+        <span>Hello world!</span>
+      </MglPopup>
+    </MglMap>
+  </div>
+</template>
+
 <script>
-import Mapbox from "mapbox-gl";
-import { MglMap } from "vue-mapbox";
+import {
+  MglMap,
+  MglNavigationControl,
+  MglGeolocateControl,
+  MglPopup
+} from "vue-mapbox";
 
 export default {
+  name: 'map',
   components: {
-    MglMap
+    MglMap,
+    MglNavigationControl,
+    MglGeolocateControl,
+    MglPopup
   },
   data() {
     return {
-      accessToken: 'pk.eyJ1Ijoia2FzaDE1aWYiLCJhIjoiY2tiMXNlMW9zMDZzbTJ3cjFmeHJxN2RvYyJ9.55UJJiIIQnwnEhTdo43PEQ', // your access token. Needed if you using Mapbox maps
-      mapStyle:'mapbox://styles/mapbox/streets-v11' // your map style
+      accessToken: "pk.eyJ1Ijoia2FzaDE1aWYiLCJhIjoiY2tiMXNlMW9zMDZzbTJ3cjFmeHJxN2RvYyJ9.55UJJiIIQnwnEhTdo43PEQ",
+      mapStyle: 'mapbox://styles/mapbox/streets-v11',
+      popupCoordinates: [10, 10]
     };
-  },
-
-  created() {
-    // We need to set mapbox-gl library here in order to use it in template
-    this.mapbox = Mapbox;
   }
 };
 </script>
@@ -23,3 +39,17 @@ export default {
 <style scoped>
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

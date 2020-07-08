@@ -1,6 +1,7 @@
 <template>
 
 <div>
+                <h1>Worldwide Data</h1>
 
                 <div class="row" style="margin-top: 100px;">
 
@@ -22,17 +23,21 @@
 
                 </div>
 
-                <Map style='width: 100%; height: 80vh'>  <MglMap
-    :mapboxGl="mapbox-gl"
-    @load="onMapLoaded"
-  /></Map>
+                <h3>Search your country here</h3>
+                <div class="map">
+                <Map style='width: 100%; height: 80vh'>
+                <MglMap
+                :mapboxGl="mapbox-gl"
+                @load="onMapLoaded"
+                /></Map>
+                </div>
+                
 
-
+                    <h3>Tablewise Data</h3>
                     <div class="table-responsive-xl " >
 
                         <table class="table table-dark table-striped">
                             <thead>
-                                <th>Date</th>
                                 <th>Country</th>
                                 <th>Total cases</th>
                                 <th>Recovered</th>
@@ -43,8 +48,6 @@
                             
                             
                                 <tr  v-for="country in worldwide.Countries" :key="country.CountryCode">
-
-                                    <td><b>{{ country.Date }}</b></td>
                                     <td><b>{{ country.Country}}</b></td>
                                     <td><b>{{ country.TotalConfirmed}}</b></td>
                                     <td><b>{{ country.TotalRecovered}}</b></td>
@@ -112,5 +115,19 @@ th{
     font-size: 22px;
     font-weight: bold;
     color: rgb(128, 253, 191);
+}
+
+.map{
+    padding: 10vh 0vw 10vh 2vw;
+}
+
+h1 , h3 {
+    text-align: center;
+    color: #0e6660;
+    margin-top: 5vh;
+}
+
+.table-responsive-xl{
+    padding: 0 2vw 0 2vw;
 }
 </style>

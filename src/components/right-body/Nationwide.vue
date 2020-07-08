@@ -1,7 +1,7 @@
 <template>
 <div>
 
-
+                <h1>Nationwide Data</h1>
 
                 <!--graph container-->
                 <div class="row" style="margin-top: 5vh;">
@@ -44,7 +44,14 @@
 
                 </div>
       
-                <div id='map' style='width: 100%; height: 80vh'></div>
+                <h3>Search states on Map</h3>
+                <div class="map">
+                <Map style='width: 100%; height: 80vh'>
+                <MglMap
+                :mapboxGl="mapbox-gl"
+                @load="onMapLoaded"
+                /></Map>
+                </div>
 
 </div>
 </template>
@@ -52,13 +59,16 @@
 <script>
 import LineChart from "../graph/graph.vue";
 import {mapGetters , mapActions , mapState } from 'vuex';
+import Map from "../graph/map.vue";
 
 export default {
   name: 'Nationwide',
 
   components:{
       LineChart,
+      Map,
   },
+  
 
   data(){
       return{
@@ -152,4 +162,16 @@ h4{
 .col-sm-12{
     padding-top: 10vh;
 }
+
+.map{
+    padding: 10vh 0vw 10vh 2vw;
+}
+
+h1 , h3 {
+    text-align: center;
+    color: #0e6660;
+    margin-top: 5vh;
+}
+
+
 </style>
