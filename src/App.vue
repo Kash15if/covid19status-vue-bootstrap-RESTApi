@@ -61,4 +61,10 @@ export default {
   overflow: scroll;
   padding: 0;
 }
+
+.navMenu{
+          background-image: url("./assets/NavBg.jpg");
+          background-size: 150%;
+          padding: 0;
+        }
 </style>
