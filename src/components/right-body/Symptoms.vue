@@ -71,6 +71,7 @@ export default {
 .symptom{
   padding-top: 7vh;
   padding-bottom: 25vh;
+  margin: 0;
   color: #3eaca4;
   overflow: auto;
 }

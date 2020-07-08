@@ -43,8 +43,8 @@
                     
                     <div class="col-md-6 col-sm-12">
                       <h5 style="margin-top: 5%;">Follow me : </h5>
-                        <a href="https://github.com/Kash15if"><i class="fab fa-github-square"></i></a>
-                        <a href="https://www.linkedin.com/in/kashif-ahmad-373286164/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Kash15if" target="_blank" rel="noopener noreferrer"><i class="fab fa-github-square"></i></a>
+                        <a href="https://www.linkedin.com/in/kashif-ahmad-373286164/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                         <i class="fab fa-facebook-square"></i>
                         <i class="fab fa-twitter-square"></i>
                         
@@ -85,7 +85,7 @@ export default {
 
 
 img{
-        height: 35vh;
+        height: 37vh;
         width: 70%;
         border-radius: 50%;
         margin-left: 15%;
@@ -104,7 +104,7 @@ b{
 
 .rowBody{
         padding-top: 20vh;
-        padding-bottom: 25vh;
+        padding-bottom: 30vh;
         color: #3eaca4;
     }
 
