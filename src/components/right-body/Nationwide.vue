@@ -165,6 +165,7 @@ h4{
 
 .map{
     padding: 10vh 0vw 10vh 2vw;
+    height: 60%;
 }
 
 h1 , h3 {

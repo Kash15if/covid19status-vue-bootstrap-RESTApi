@@ -32,7 +32,7 @@
                 /></Map>
                 </div>
                 
-
+                    
                     <h3>Tablewise Data</h3>
                     <div class="table-responsive-xl " >
 
@@ -42,16 +42,18 @@
                                 <th>Total cases</th>
                                 <th>Recovered</th>
                                 <th>Deaths</th>
+                                <th>New cases</th>
                             </thead>
                             <tbody>
       
                             
                             
                                 <tr  v-for="country in worldwide.Countries" :key="country.CountryCode">
-                                    <td><b>{{ country.Country}}</b></td>
-                                    <td><b>{{ country.TotalConfirmed}}</b></td>
-                                    <td><b>{{ country.TotalRecovered}}</b></td>
-                                    <td><b>{{ country.TotalDeaths}}</b></td>
+                                    <td style="color: rgb(128, 253, 191);"><b>{{ country.Country}}</b></td>
+                                    <td class="text-primary"><b>{{ country.TotalConfirmed}}</b></td>
+                                    <td class="text-success"><b>{{ country.TotalRecovered}}</b></td>
+                                    <td class="text-danger"><b>{{ country.TotalDeaths}}</b></td>
+                                    <td class="text-white"><b>{{ country.NewConfirmed }}</b></td>
                                     
                                 </tr>
                             
@@ -107,9 +109,7 @@ h4{
     margin-top: 1vh;
 }
 
-.table{
-    margin-top: 10vh;
-}
+
 
 th{
     font-size: 22px;
@@ -118,7 +118,8 @@ th{
 }
 
 .map{
-    padding: 10vh 0vw 10vh 2vw;
+    margin: 10vh 0vw 10vh 2vw;
+    height: 60%;
 }
 
 h1 , h3 {
@@ -129,5 +130,6 @@ h1 , h3 {
 
 .table-responsive-xl{
     padding: 0 2vw 0 2vw;
+    margin-top: 10vh;
 }
 </style>
