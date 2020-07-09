@@ -15,67 +15,14 @@
               <div class="container" style="margin-top: 50px;">
               <div class="row">
                
-                <div class="col-md-2 col-sm-6 ">
+                <div class="col-md-4 col-sm-6" v-for="{i , state , code} in stateList" :key="i">
+                  <router-link :to="{path: '/distwise', query: { state: state, code: code }}"  exact>
                   <div class="statebox">
-                    <b>Andhra Pradesh</b>
+                    <b>{{ state }}</b>
                   </div>
+                  </router-link>
                 </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Bihar</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                    <b>Bengal</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Andhra Pradesh</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Andhra Pradesh</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Andhra Pradesh</b>
-                  </div>
-                </div>
-
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                    <b>Andhra Pradesh</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Bihar</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                    <b>Bengal</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Andhra Pradesh</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Andhra Pradesh</b>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-6 ">
-                  <div class="statebox">
-                  <b>Andhra Pradesh</b>
-                  </div>
-                </div>
+                
 
               </div>
               </div>
@@ -84,8 +31,43 @@
 </template>
 
 <script>
+import router from '../../router'
+
+import  { mapActions , mapGetters , mapState } from 'vuex';
+
 export default {
-  name: 'Statewise'
+  name: 'Statewise',
+
+  data(){
+    return{
+      stateList: []
+    };
+  },
+
+  methods:{
+      ...mapActions(['getData']),
+  },
+  computed: {
+      ...mapGetters(['nationwide']),
+      ...mapState(['nationwide'])
+  },
+  created(){
+    
+        this.getData().then(() => {
+            const statesData = this.nationwide.statewise;
+            let i = -1;
+
+            statesData.forEach( (d) => {
+              if(i >= 0){
+                let sts = d.state;
+                let code = d.statecode;
+
+                this.stateList.push({i , state: sts , code: code});
+              }
+              i++;
+            });
+        });
+  }
 }
 </script>
 
@@ -99,6 +81,7 @@ export default {
         color: white;
         padding: 10px;
         margin: 2px;
+        margin-left: 5%;
       }
 
 </style>

@@ -28,13 +28,16 @@ export default {
   },
   data() {
     return {
-      accessToken: "pk.eyJ1Ijoia2FzaDE1aWYiLCJhIjoiY2tiMXNlMW9zMDZzbTJ3cjFmeHJxN2RvYyJ9.55UJJiIIQnwnEhTdo43PEQ",
+      accessToken: "",
       mapStyle: 'mapbox://styles/mapbox/streets-v11',
       popupCoordinates: [77, 28],
       zoom: 3.5,
       center: [77,24]
     };
   },
+  created(){
+    this.accessToken = process.env.VUE_APP_APIKEY;
+  }
 };
 </script>
 

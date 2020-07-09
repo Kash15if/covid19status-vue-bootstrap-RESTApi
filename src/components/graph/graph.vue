@@ -14,13 +14,34 @@ export default {
       default: null
     },
 
-    options: {
-      type: Object,
-      default: null
-    },
     bgcolor: '',
     label: '',
 
+  },
+
+  data(){
+    return{
+                chartOptions: {
+                responsive: true,
+                maintainAspectRatio: true,
+                tooltips: {
+                    // Disable the on-canvas tooltip
+                    enabled: true,
+                },
+                scales: {
+                            xAxes: [{
+                            gridLines: {
+                            display: false
+                        }
+                        }],
+                yAxes: [{
+                gridLines: {
+                display: false
+                }
+                 }]
+                }
+            }
+    }
   },
 
   mounted () {
@@ -40,7 +61,7 @@ export default {
           },
         ],
       },
-      this.options
+      this.chartOptions
     );
 
    

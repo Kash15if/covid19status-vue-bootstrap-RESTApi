@@ -9,7 +9,7 @@ export default new Vuex.Store({
     worldwide :   [],
     nationwide:   [],
     statesgraph:  [],
-    districts:    []
+    districts:    [],
 
 
   },

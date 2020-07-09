@@ -14,7 +14,7 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Worldwide',
-    component: Worldwide
+    component: Worldwide,
   },
   {
     path: '/nationwide',
@@ -27,9 +27,10 @@ Vue.use(VueRouter)
     component: Statewise
   },
   {
-    path: '/District',
+    path: '/distwise',
     name: 'Districs',
-    component: Districts
+    component: Districts,
+    props: true,
   },
   {
     path: '/about',

@@ -12,7 +12,6 @@
 
                        <line-chart
                         :chartData="totalConfirmed"
-                        :options="this.chartOptions"
                         label="# total cases till today"
                         bgcolor="#0066ff"
                         ></line-chart>
@@ -24,7 +23,6 @@
 
                         <line-chart
                         :chartData="totalRecovered"
-                        :options="this.chartOptions"
                         label="# of people recovered till today"
                         bgcolor="#00b359"
                         ></line-chart>
@@ -36,7 +34,6 @@
 
                         <line-chart
                         :chartData="totalDeceased"
-                        :options="this.chartOptions"
                         label="# of deaths till today"
                         bgcolor="#ff0000"
                         ></line-chart>
@@ -75,26 +72,6 @@ export default {
           totalConfirmed: [],
           totalRecovered : [],
           totalDeceased : [],
-          chartOptions: {
-                responsive: true,
-                maintainAspectRatio: true,
-                tooltips: {
-                    // Disable the on-canvas tooltip
-                    enabled: true,
-                },
-                scales: {
-                            xAxes: [{
-                            gridLines: {
-                            display: false
-                        }
-                        }],
-                yAxes: [{
-                gridLines: {
-                display: false
-                }
-                 }]
-                }
-            },
           todayConfirmed: "",
           todayRecovered: "",
           todayDeceased:  "",

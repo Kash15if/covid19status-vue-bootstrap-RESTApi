@@ -53,7 +53,7 @@
                                     <td class="text-primary"><b>{{ country.TotalConfirmed}}</b></td>
                                     <td class="text-success"><b>{{ country.TotalRecovered}}</b></td>
                                     <td class="text-danger"><b>{{ country.TotalDeaths}}</b></td>
-                                    <td class="text-white"><b>{{ country.NewConfirmed }}</b></td>
+                                    <td class="text-warning"><b>{{ country.NewConfirmed }}</b></td>
                                     
                                 </tr>
                             
