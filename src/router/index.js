@@ -1,55 +1,53 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-import Worldwide from '../components/right-body/Worldwide.vue'
-import Nationwide from '../components/right-body/Nationwide.vue'
-import Statewise from '../components/right-body/Statewise.vue'
-import Districts from '../components/right-body/District.vue'
-import Symptoms from '../components/right-body/Symptoms.vue'
-import AboutUs from '../components/right-body/AboutUs.vue'
+import Worldwide from "../components/right-body/Worldwide.vue";
+import Nationwide from "../components/right-body/Nationwide.vue";
+import Statewise from "../components/right-body/Statewise.vue";
+import Districts from "../components/right-body/District.vue";
+import Symptoms from "../components/right-body/Symptoms.vue";
+import AboutUs from "../components/right-body/AboutUs.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-  const routes = [
+const routes = [
   {
-    path: '/',
-    name: 'Worldwide',
+    path: "/",
+    name: "Worldwide",
     component: Worldwide,
   },
   {
-    path: '/nationwide',
-    name: 'Nationwide',
-    component: Nationwide
+    path: "/nationwide",
+    name: "Nationwide",
+    component: Nationwide,
   },
   {
-    path: '/statewise',
-    name: 'Statewise',
-    component: Statewise
+    path: "/statewise",
+    name: "Statewise",
+    component: Statewise,
   },
   {
-    path: '/distwise',
-    name: 'Districs',
+    path: "/distwise",
+    name: "Districs",
     component: Districts,
     props: true,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: AboutUs
+    path: "/about",
+    name: "About",
+    component: AboutUs,
   },
   {
-    path: '/symptoms',
-    name: 'Symptoms',
-    component: Symptoms
-  }
-]
-
-
+    path: "/symptoms",
+    name: "Symptoms",
+    component: Symptoms,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
