@@ -11,8 +11,10 @@
         Hi. I'm <b class="name "> Kashif Ahmad.</b>
       </h2>
       <h5 style="margin-top: 5%;">
-        A <b>Full Stack Developer</b> and a co-founder of a startup
-        K2_Developers
+        A Focused and enthusiastic Full Stack Developer with a keen interest in web and android 
+        development and solving DSA problems. I am a passionate individual who thrives to build 
+        and apply algorithms to solve real-world industry problems. worked on various technologies 
+        like git, cloud, devops, etc.
       </h5>
       <h5 style="margin-top: 5%;">Skills :-</h5>
 
