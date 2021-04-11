@@ -11,10 +11,9 @@
         placeholder="Search States"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
+        v-model="search"
       />
-      <div class="input-group-append">
-        <button class="btn btn-success" type="button">Search</button>
-      </div>
+
     </div>
 
     <!--states lists with grid-->
@@ -22,7 +21,7 @@
       <div class="row">
         <div
           class="col-md-4 col-sm-6"
-          v-for="{ i, state, code } in stateList"
+          v-for="{ i, state, code } in filterStates"
           :key="i"
         >
           <router-link
@@ -49,7 +48,8 @@ export default {
 
   data() {
     return {
-      stateList: [],
+      stateLists: [],
+      search: ''
     };
   },
 
@@ -59,6 +59,12 @@ export default {
   computed: {
     ...mapGetters(["nationwide"]),
     ...mapState(["nationwide"]),
+    filterStates: function (){
+
+      return this.stateLists.filter((stateList) => {
+        return stateList.state.toLowerCase().match(this.search.toLowerCase())
+      });
+    }
   },
   created() {
     this.getData().then(() => {
@@ -70,11 +76,12 @@ export default {
           let sts = d.state;
           let code = d.statecode;
 
-          this.stateList.push({ i, state: sts, code: code });
+          this.stateLists.push({ i, state: sts, code: code });
         }
         i++;
       });
     });
+
   },
 };
 </script>
