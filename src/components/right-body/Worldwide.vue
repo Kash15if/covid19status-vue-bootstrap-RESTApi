@@ -20,12 +20,14 @@
     </div>
 
     <h3>Search your country here</h3>
-    <div class="map">
+<!--   <div class="map">
       <Map style="width: 100%; height: 80vh">
         <MglMap :mapboxGl="mapbox - gl" @load="onMapLoaded"
       /></Map>
     </div>
+-->
 
+    <br><br>
     <h3>Tablewise Data</h3>
     <div class="table-responsive-xl ">
       <table class="table table-dark table-striped">
