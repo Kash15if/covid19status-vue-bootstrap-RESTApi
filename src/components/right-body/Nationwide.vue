@@ -8,7 +8,7 @@
 
                     <div class="col-md-4 col-sm-12 text-center text-primary"  v-if="totalConfirmed.length != 0">
                         <h4><b>New Cases</b></h4>
-                        <h6>{{ todayConfirmed }}</h6>
+                        <h6>{{ totalConfirmed[this.todayCount-1].date }} : {{totalConfirmed[this.todayCount-1].data}}</h6>
 
                        <line-chart
                         :chartData="totalConfirmed"
@@ -19,7 +19,7 @@
 
                     <div class="col-md-4 col-sm-12 text-center text-success"  v-if="totalConfirmed.length != 0">
                         <h4><b>Recovered daily</b></h4>
-                        <h6>{{ todayRecovered }}</h6>
+                        <h6>{{ totalRecovered[this.todayCount-1].date }} : {{totalRecovered[this.todayCount-1].data}}</h6>
 
                         <line-chart
                         :chartData="totalRecovered"
@@ -30,7 +30,7 @@
 
                     <div class="col-md-4 col-sm-12 text-center text-danger"  v-if="totalConfirmed.length != 0">
                         <h4><b>Death</b></h4>
-                        <h6>{{ todayDeceased }}</h6>
+                        <h6>{{ totalDeceased[this.todayCount-1].date }} : {{totalDeceased[this.todayCount-1].data}}</h6>
 
                         <line-chart
                         :chartData="totalDeceased"
@@ -69,12 +69,10 @@ export default {
 
   data(){
       return{
+          todayCount: 0,
           totalConfirmed: [],
           totalRecovered : [],
-          totalDeceased : [],
-          todayConfirmed: "",
-          todayRecovered: "",
-          todayDeceased:  "",
+          totalDeceased : []
           
       };
   },
@@ -106,19 +104,14 @@ export default {
             this.totalConfirmed.push({ date, data: dailyconfirmed });
             this.totalRecovered.push({ date, data: dailyrecovered });
             this.totalDeceased.push({ date, data: dailydeceased });
+            this.todayCount++;
             }
-
-            i++;
+            else
+                i++;
             
             });
 
-        }).then(() => {
-                
-            this.dailyConfirmed = this.nationwide.statewise[0].confirmed;
-            this.dailyRecovered = this.nationwide.statewise[0].recovered;
-            this.dailyDeceased = this.nationwide.statewise[0].deaths;
-
-            });
+        });
         
 
         

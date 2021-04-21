@@ -11,7 +11,7 @@
 
                     <div class="col-md-4 col-sm-12 text-center text-primary"  v-if="totalConfirmed.length != 0">
                         <h4><b>New Cases</b></h4>
-                        <h6>{{  }}</h6>
+                        <h6>{{ totalConfirmed[todayCount -1].date }} : {{ totalConfirmed[todayCount -1].data }}</h6>
 
                        <line-chart
                         :chartData="totalConfirmed"
@@ -22,7 +22,7 @@
 
                     <div class="col-md-4 col-sm-12 text-center text-success"  v-if="totalConfirmed.length != 0">
                         <h4><b>Recovered Today</b></h4>
-                        <h6>{{  }}</h6>
+                        <h6>{{ totalRecovered[todayCount -1].date }} : {{ totalRecovered[todayCount -1].data }}</h6>
 
                         <line-chart
                         :chartData="totalRecovered"
@@ -33,7 +33,7 @@
 
                     <div class="col-md-4 col-sm-12 text-center text-danger"  v-if="totalConfirmed.length != 0">
                         <h4><b>Today's Death</b></h4>
-                        <h6>{{  }}</h6>
+                        <h6>{{ totalDeceased[todayCount -1].date }} : {{ totalDeceased[todayCount -1].data }}</h6>
 
                         <line-chart
                         :chartData="totalDeceased"
@@ -103,6 +103,7 @@ export default {
       return{
           state: "",
           code: "",
+          todayCount: 0,
           totalConfirmed: [],
           totalRecovered : [],
           totalDeceased : [],
@@ -133,7 +134,8 @@ export default {
 
             const stCode = this.code.toLowerCase();
 
-            var skipDate = 1;
+            let skipDate = 1;
+            
             statesGraph.forEach((d) => {
 
             if(skipDate > 270){
@@ -143,6 +145,7 @@ export default {
             if(i == 1){
             const conf = d[stCode];
             this.totalConfirmed.push({ date, data: conf });
+            this.todayCount++;
             }
             if( i == 2){
                 const recov = d[stCode];
@@ -158,7 +161,6 @@ export default {
             i++;
             }
             else{
-                
                 skipDate++;
             }
             
@@ -169,8 +171,9 @@ export default {
           this.distTable =  this.districts[this.state].districtData;
           
           this.districtName = Object.keys(this.distTable);
+          console.log(this.totalDeceased[this.todayCount-1]);
 
-          console.log(this.districtName);
+          
           
       });
 
