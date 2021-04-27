@@ -78,7 +78,29 @@ export default {
   },
 
     methods:{
-      ...mapActions(['getData'])
+      ...mapActions(['getData']),
+      mapLoaded(e) {
+      e.map.on('mouseenter', 'geopoints', (event) => {
+        e.map.getCanvas().style.cursor = 'pointer';
+        const coordinates = event.features[0].geometry.coordinates.slice();
+        const content = event.features[0].properties.name;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(event.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += event.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+        this.popupCoordinates = coordinates;
+        this.popupContent = content;
+        this.$refs.popup.popup.addTo(e.map); // not the best way to do this
+      });
+      e.map.on('mouseleave', 'geopoints', () => {
+        e.map.getCanvas().style.cursor = '';
+        this.$refs.popup.popup.remove(); // not the best way to do this
+      });
+
+      }
     },
 
     computed: {
