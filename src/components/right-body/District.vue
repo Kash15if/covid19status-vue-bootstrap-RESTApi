@@ -60,10 +60,13 @@
                             <thead>
                                 <tr>
                                 <th>District</th>
-                                <th>Total cases</th>
-                                <th>Recovered</th>
-                                <th>Active</th>
-                                <th>Deaths</th>
+                                <th>Tot. cases</th>
+                                <th>Tot. Recovered</th>
+                                <th>Tot. Active</th>
+                                <th>Tot. Deaths</th>
+                                <th>New Cases</th>
+                                <th>Recov. Today</th>
+                                <th>Died Today</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,6 +78,9 @@
                                     <td class="text-success"><b>{{ distTable[x].recovered }}</b></td>
                                     <td class="text-warning"><b>{{distTable[x].active }}</b></td>
                                     <td class="text-danger"><b>{{ distTable[x].deceased }}</b></td>
+                                    <td class="text-warning"><b>{{distTable[x].delta.confirmed }}</b></td>
+                                    <td class="text-success"><b>{{ distTable[x].delta.recovered }}</b></td>
+                                    <td class="text-danger"><b>{{ distTable[x].delta.deceased }}</b></td>
                                     
                                 </tr>
 
@@ -109,6 +115,8 @@ export default {
           totalDeceased : [],
           districtName: [],
           distTable: [],
+          newCases: [],
+          newDeath: [],
 
       };
   },
